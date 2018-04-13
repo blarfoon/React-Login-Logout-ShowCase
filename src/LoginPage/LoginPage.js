@@ -37,7 +37,7 @@ class LoginPage extends Component {
         }));
       });
     } else {
-      alert('error');
+      alert('Username or Password not correct');
       this.setState({ loading: false });
     }
   }
