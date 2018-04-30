@@ -8,7 +8,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        Logged in: {this.props.isLogged ? "true" : "false"}
         <br />
         <Link to="/login">Login</Link>
       </div>
