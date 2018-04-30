@@ -10,10 +10,11 @@ export function login(values, callback) {
   let login = delay(Math.floor(Math.random() * 2000) + 1000)
     .then(() => callback())
     .then(() => {
+      let logged = false;
       if (users.find((user) => { return (user.user === values.user && user.pass === values.pass) })) {
-        return { logged: true }
+        logged = true ;
       }
-      return { logged: false }
+      return { logged }
     });
 
   return {
