@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './globalStyles.css';
-import App from './App/App';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
+
+import './global.css';
+
+import Routes from './routes';
+import reducers from './reducers';
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+
+ReactDOM.render(
+    <Provider store={createStoreWithMiddleware(reducers)}>
+        <Routes />
+    </Provider>
+    , document.getElementById('root'));
 registerServiceWorker();
